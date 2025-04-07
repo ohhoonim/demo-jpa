@@ -27,16 +27,9 @@ public class ProductIdentityEntity {
 
 }
 
-/*
 // GenerationType.AUTO 옵션과 동일 
 
-Hibernate: 
-    set client_min_messages = WARNING
-
-Hibernate: 
-    drop table if exists product_identity cascade
-
-Hibernate: 
+/*
     create table product_identity (
         price numeric(38,2),
         created_at timestamp(6),
@@ -45,3 +38,4 @@ Hibernate:
         primary key (id)
     )
  */
+ 

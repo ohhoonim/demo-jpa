@@ -27,7 +27,8 @@ public class ProductOneEntity {
     private LocalDateTime createdAt;
 
     // 아래부분 추가해도 테이블 생성에는 영향 없음
-    @OneToMany(mappedBy = "product") // <- (주의) JoinColumn을 사용하면 안됨 
+    // (주의) JoinColumn을 사용하면 안됨 
+    @OneToMany(mappedBy = "product") 
     private List<CategoryManyEntity> categories;
 }
 

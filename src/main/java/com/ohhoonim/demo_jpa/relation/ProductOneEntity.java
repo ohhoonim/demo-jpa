@@ -2,9 +2,12 @@ package com.ohhoonim.demo_jpa.relation;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,10 +29,12 @@ public class ProductOneEntity {
 
     private LocalDateTime createdAt;
 
-    // 아래부분 추가해도 테이블 생성에는 영향 없음
-    // (주의) JoinColumn을 사용하면 안됨 
-    @OneToMany(mappedBy = "product") 
-    private List<CategoryManyEntity> categories;
+    // 아래부분 추가해도 테이블 생성에는 영향 없음 // (주의) JoinColumn을 사용하면 안됨 
+    // 반드시 초기화 해주어야 함.
+    @OneToMany(mappedBy = "product" , 
+            cascade = CascadeType.ALL, 
+            fetch=FetchType.EAGER)  // <- FetchType.LAZY 로 바꿔보자 
+    private List<CategoryManyEntity> categories = new ArrayList<>();
 }
 
 

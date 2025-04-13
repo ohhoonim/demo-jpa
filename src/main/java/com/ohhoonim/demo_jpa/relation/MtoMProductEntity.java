@@ -2,8 +2,10 @@ package com.ohhoonim.demo_jpa.relation;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,8 +29,8 @@ public class MtoMProductEntity {
 
     private LocalDateTime createdAt;
 
-    @ManyToMany(mappedBy = "products")
-    private List<MtoMCategoryEntity> categories; 
+    @ManyToMany(mappedBy = "products", cascade = CascadeType.ALL)
+    private List<MtoMCategoryEntity> categories = new ArrayList<>(); 
 
 }
 /*

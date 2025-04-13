@@ -1,7 +1,9 @@
 package com.ohhoonim.demo_jpa.relation;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -27,7 +29,7 @@ public class MtoMCategoryEntity {
     @JoinTable(name = "product_category_many2many",
         joinColumns = @JoinColumn(name = "product_id"),
         inverseJoinColumns = @JoinColumn(name = "category_id"))
-    private List<MtoMProductEntity> products;  
+    private List<MtoMProductEntity> products = new ArrayList<>();  
 }
 
 /*

@@ -1,8 +1,5 @@
 package com.ohhoonim.demo_jpa.relation;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,6 +13,19 @@ import lombok.Data;
 @Table(name="category_one2many")
 @Entity
 public class CategoryManyEntity {
+
+    public CategoryManyEntity() {
+    }
+
+    public CategoryManyEntity(String name, ProductOneEntity product) {
+        this.name = name;
+        this.product = product;
+    }
+
+    public CategoryManyEntity(String name) {
+        this.name = name;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
